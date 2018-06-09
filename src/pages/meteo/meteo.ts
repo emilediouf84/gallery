@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 /**
  * Generated class for the MeteoPage page.
@@ -14,12 +15,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'meteo.html',
 })
 export class MeteoPage {
+  meteo:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public http:Http, public loadingCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MeteoPage');
+  }
+
+  onGetMeteo(dataForm){
+    let loading=this.loadingCtrl.create({
+      content:"Chargement des données ..."
+    });
+    loading.present();
+    this.http.get("http://api.openweathermap.org/data/2.5/forecast?q="
+    +dataForm.ville+"&appid=a4578e39643716894ec78b28a71c7110")
+    .map(resp=>resp.json())
+    .subscribe(data=>{
+       this.meteo=data;
+       loading.dismiss();
+    },err=>{
+      loading.dismiss();
+     console.log(err);
+    })
   }
 
 }
