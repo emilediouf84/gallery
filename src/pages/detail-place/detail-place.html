@@ -28,5 +28,13 @@
       <p>Longitude:<strong>{{place.location.longitude}}</strong></p>
       <p>Latitude:<strong>{{place.location.latitude}}</strong></p>
     </ion-card-content>
+    <ion-card-content>
+      <agm-map [latitude]="place.location.latitude" [longitude]="place.location.longitude"
+      [zoom]="16"
+      >
+        <agm-marker [latitude]="place.location.latitude" [longitude]="place.location.longitude">
+        </agm-marker>
+      </agm-map>
+    </ion-card-content>
   </ion-card>
 </ion-content>

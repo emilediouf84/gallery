@@ -17,6 +17,7 @@ import { NewPlacePage } from '../pages/new-place/new-place';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { DetailPlacePage } from '../pages/detail-place/detail-place';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,9 @@ import { DetailPlacePage } from '../pages/detail-place/detail-place';
   ],
   imports: [
     BrowserModule,HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyn5ziWDi7Jfx-vrfj04djEAjWEWL-QRU'
+    }),
     IonicModule.forRoot(MyApp),IonicStorageModule.forRoot({
       name: '__PlacesData',
          driverOrder: ['indexeddb', 'sqlite', 'websql']
