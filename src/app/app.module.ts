@@ -16,11 +16,12 @@ import { placesService } from './services/places.service';
 import { NewPlacePage } from '../pages/new-place/new-place';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
+import { DetailPlacePage } from '../pages/detail-place/detail-place';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage, NewPlacePage
+    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage, NewPlacePage, DetailPlacePage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -33,7 +34,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage, NewPlacePage
+    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage, NewPlacePage, DetailPlacePage
   ],
   providers: [
     StatusBar,GalleryService,placesService,Geolocation,

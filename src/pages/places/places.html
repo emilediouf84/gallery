@@ -23,7 +23,7 @@
 
 <ion-content padding>
    <ion-list>
-     <ion-item *ngFor="let p of places">
+     <ion-item *ngFor="let p of places" (click)="onDetailPlace(p)">
        {{p.title}}
      </ion-item>
    </ion-list>

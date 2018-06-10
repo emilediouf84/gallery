@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Place } from '../../model/place.model';
 import { placesService } from '../../app/services/places.service';
 import { NewPlacePage } from '../new-place/new-place';
+import { DetailPlacePage } from '../detail-place/detail-place';
 
 /**
  * Generated class for the PlacesPage page.
@@ -36,6 +37,10 @@ export class PlacesPage {
 
   onNewPlace(){
     this.navCtrl.push(NewPlacePage);
+  }
+
+  onDetailPlace(p:Place){
+   this.navCtrl.push(DetailPlacePage,{place:p});
   }
 
 }
