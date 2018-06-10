@@ -12,23 +12,31 @@ import { MeteoPage } from '../pages/meteo/meteo';
 import { PlacesPage } from '../pages/places/places';
 import { GalleryService } from './services/gallery.service';
 import { DetailImagePage } from '../pages/detail-image/detail-image';
+import { placesService } from './services/places.service';
+import { NewPlacePage } from '../pages/new-place/new-place';
+import { IonicStorageModule } from '@ionic/storage';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage
+    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage, NewPlacePage
   ],
   imports: [
     BrowserModule,HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),IonicStorageModule.forRoot({
+      name: '__PlacesData',
+         driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage
+    HomePage, GalleryPage, MeteoPage, PlacesPage, DetailImagePage, NewPlacePage
   ],
   providers: [
-    StatusBar,GalleryService,
+    StatusBar,GalleryService,placesService,Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
