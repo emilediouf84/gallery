@@ -18,6 +18,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { DetailPlacePage } from '../pages/detail-place/detail-place';
 import { AgmCoreModule } from '@agm/core';
+import { Camera } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { AgmCoreModule } from '@agm/core';
   ],
   providers: [
     StatusBar,GalleryService,placesService,Geolocation,
-    SplashScreen,
+    SplashScreen,Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
